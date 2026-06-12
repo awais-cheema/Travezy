@@ -14,6 +14,7 @@ function onScroll() {
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
+
 // Seamless marquee — duplicate the airline set so the -50% loop has no gap
 const track = document.getElementById('marquee');
 if (track) {
