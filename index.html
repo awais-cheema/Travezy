@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travezy — Unforgettable Travel Experiences</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#ce1b2b;
+  --red-dark:#b01523;
+  --ink:#161616;
+  --ink-2:#1c1c1c;
+  --text:#1d1d1d;
+  --muted:#6b6b6b;
+  --muted-2:#8a8a8a;
+  --line:#e7e7e7;
+  --bg:#ffffff;
+  --bg-soft:#f3f3f3;
+  --radius:14px;
+  --shadow:0 18px 40px -18px rgba(0,0,0,.25);
+  --container:1200px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Poppins',system-ui,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+.container{max-width:var(--container);margin:0 auto;padding:0 24px}
+
+.eyebrow{
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  color:var(--red);
+  font-weight:500;
+  font-size:1.05rem;
+  margin-bottom:6px;
+  display:block;
+}
+.section-title{
+  font-weight:800;
+  font-size:clamp(1.7rem,3.4vw,2.6rem);
+  letter-spacing:-.02em;
+  line-height:1.15;
+  color:var(--ink);
+}
+.center{text-align:center}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--red);color:#fff;
+  font-weight:600;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:14px 26px;border:none;border-radius:8px;cursor:pointer;
+  transition:background .25s ease,transform .25s ease;
+}
+.btn:hover{background:var(--red-dark);transform:translateY(-2px)}
+.btn .arrow{display:inline-flex}
+
+/* ---------------- NAV ---------------- */
+header{
+  position:sticky;top:0;z-index:60;
+  background:#fff;border-bottom:1px solid var(--line);
+}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  height:72px;
+}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.3rem;color:var(--ink);letter-spacing:-.02em}
+.logo svg{color:var(--red)}
+.nav-links{display:flex;gap:30px}
+.nav-links a{
+  font-size:.92rem;font-weight:500;color:#3a3a3a;position:relative;padding:4px 0;
+  transition:color .2s ease;
+}
+.nav-links a:hover{color:var(--red)}
+.nav-links a.active{color:var(--red)}
+.nav-links a.active::after{
+  content:"";position:absolute;left:0;bottom:-2px;width:60%;height:2px;background:var(--red);border-radius:2px;
+}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+.burger span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+
+/* ---------------- HERO ---------------- */
+.hero{
+  position:relative;min-height:560px;display:flex;align-items:center;
+  background:linear-gradient(90deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.30) 55%,rgba(0,0,0,.10) 100%),
+    url('https://images.unsplash.com/photo-1564760055775-d63b17a55c44?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  color:#fff;
+  padding:60px 0;
+}
+.hero-inner{display:flex;justify-content:space-between;align-items:center;gap:40px;width:100%}
+.hero-text{max-width:560px}
+.badge{
+  display:inline-block;background:var(--red);color:#fff;
+  font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  padding:7px 16px;border-radius:6px;margin-bottom:22px;
+}
+.hero h1{font-size:clamp(2.1rem,4.6vw,3.3rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:14px}
+.hero .price{font-size:1.05rem;margin-bottom:14px;font-weight:500}
+.hero .price b{color:var(--red);font-size:1.7rem;font-weight:800}
+.hero p{color:rgba(255,255,255,.85);font-size:.98rem;max-width:480px;margin-bottom:26px}
+
+.hero-cards{display:flex;gap:16px}
+.hero-card{
+  background:rgba(15,15,15,.55);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.12);border-radius:10px;
+  padding:18px 22px;min-width:170px;color:#fff;
+}
+.hero-card .label{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:8px}
+.hero-card .nights{font-size:1.35rem;font-weight:700;margin-bottom:6px}
+.hero-card .from{font-size:.8rem;color:rgba(255,255,255,.8)}
+.hero-card .from b{color:#fff}
+
+/* ---------------- SECTION SPACING ---------------- */
+section{padding:84px 0}
+.heading-block{margin-bottom:46px}
+
+/* ---------------- FEATURED ---------------- */
+.featured-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:22px;
+}
+.dest-card{
+  position:relative;border-radius:var(--radius);overflow:hidden;height:380px;
+  box-shadow:var(--shadow);
+}
+.dest-card:nth-child(even){margin-top:42px}
+.dest-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.dest-card:hover img{transform:scale(1.07)}
+.dest-card::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(150,18,28,.15) 60%,rgba(160,14,22,.92) 100%);
+}
+.dest-card .info{position:absolute;left:20px;bottom:20px;z-index:2;color:#fff}
+.dest-card .tag{
+  display:inline-block;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;
+  background:rgba(255,255,255,.22);padding:4px 10px;border-radius:4px;margin-bottom:10px;backdrop-filter:blur(3px);
+}
+.dest-card h3{font-size:1.25rem;font-weight:700;line-height:1.2}
+
+/* ---------------- ABOUT ---------------- */
+.about{background:var(--bg-soft)}
+.about-inner{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center}
+.about-gallery{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.about-gallery .tall{grid-row:span 2;border-radius:12px;overflow:hidden;height:100%}
+.about-gallery .tall img,.about-gallery .sm img{width:100%;height:100%;object-fit:cover}
+.about-gallery .sm{border-radius:12px;overflow:hidden;height:170px}
+.about-content h2{margin-bottom:18px}
+.about-content p{color:var(--muted);font-size:.95rem;margin-bottom:16px}
+.about-content p b{color:var(--red);font-weight:600}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin:26px 0 30px}
+.feature{display:flex;align-items:center;gap:12px;font-weight:500;font-size:.92rem;color:#2a2a2a}
+.feature .ic{
+  width:40px;height:40px;border-radius:9px;background:#fbe7e9;color:var(--red);
+  display:grid;place-items:center;flex-shrink:0;
+}
+
+/* ---------------- POPULAR ---------------- */
+.lead{max-width:620px;margin:14px auto 0;color:var(--muted);font-size:.95rem}
+.pkg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.pkg-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.pkg-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.pkg-media{position:relative;height:180px}
+.pkg-media img{width:100%;height:100%;object-fit:cover}
+.pkg-nights{
+  position:absolute;top:12px;right:12px;background:var(--red);color:#fff;
+  font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 11px;border-radius:5px;
+}
+.pkg-body{padding:18px 18px 20px}
+.pkg-loc{font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);display:flex;align-items:center;gap:5px;margin-bottom:8px}
+.pkg-loc svg{color:var(--red)}
+.pkg-body h3{font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:18px;min-height:2.4em}
+.pkg-foot{display:flex;align-items:flex-end;justify-content:space-between}
+.pkg-foot .from{font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-2);display:block}
+.pkg-foot .amt{font-size:1.45rem;font-weight:800;color:var(--red)}
+.pkg-arrow{
+  width:42px;height:42px;border-radius:8px;background:var(--red);color:#fff;
+  display:grid;place-items:center;transition:background .25s ease;
+}
+.pkg-card:hover .pkg-arrow{background:var(--red-dark)}
+.btn-center{display:flex;justify-content:center;margin-top:48px}
+
+/* ---------------- GALLERY ---------------- */
+.gallery-grid{
+  display:grid;grid-template-columns:1.1fr 1fr 1.6fr;grid-template-rows:200px 200px;gap:16px;
+}
+.gallery-grid .g{border-radius:12px;overflow:hidden}
+.gallery-grid .g img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gallery-grid .g:hover img{transform:scale(1.06)}
+.g1{grid-row:span 2}
+.g4{grid-row:span 2}
+
+/* ---------------- TREE CTA ---------------- */
+.tree{padding-top:0}
+.tree-card{
+  position:relative;border-radius:18px;overflow:hidden;color:#fff;
+  background:linear-gradient(90deg,rgba(14,14,14,.92),rgba(14,14,14,.55)),
+    url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+  padding:56px 50px;
+}
+.tree-pill{
+  display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.2);border-radius:30px;padding:7px 16px;font-size:.82rem;margin-bottom:22px;
+}
+.tree-pill b{color:#fff}
+.tree-card h2{font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:800;line-height:1.15}
+.tree-card h2 span{color:var(--red);display:block}
+.tree-card p{color:rgba(255,255,255,.8);max-width:430px;margin-top:16px;font-size:.95rem}
+
+/* ---------------- AIRLINES ---------------- */
+.airlines{padding:40px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.airlines-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+.airline{display:flex;align-items:center;gap:10px;color:#9a9a9a;font-weight:600;font-size:1.05rem;letter-spacing:.01em}
+.airline svg{color:#b5b5b5}
+
+/* ---------------- FOOTER ---------------- */
+footer{background:var(--ink);color:#cfcfcf}
+.foot-main{display:grid;grid-template-columns:1.6fr 1fr 1.3fr 1fr;gap:40px;padding:64px 0 48px}
+.foot-logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.3rem;color:#fff;margin-bottom:18px}
+.foot-logo svg{color:var(--red)}
+.foot-main p{font-size:.88rem;color:#9d9d9d;line-height:1.7}
+.foot-col h4{color:#fff;font-size:1rem;font-weight:600;margin-bottom:18px}
+.foot-col ul li{margin-bottom:11px}
+.foot-col ul li a{font-size:.88rem;color:#a8a8a8;transition:color .2s}
+.foot-col ul li a:hover{color:var(--red)}
+.foot-contact li{display:flex;gap:10px;font-size:.88rem;color:#a8a8a8;margin-bottom:14px;align-items:flex-start}
+.foot-contact li svg{color:var(--red);flex-shrink:0;margin-top:3px}
+.foot-social{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.foot-social a{display:flex;align-items:center;gap:9px;font-size:.88rem;color:#a8a8a8}
+.foot-social a:hover{color:var(--red)}
+.cert-badges{display:flex;gap:12px}
+.cert-badges span{width:46px;height:46px;border-radius:8px;background:#fff;color:var(--ink);display:grid;place-items:center;font-size:.6rem;font-weight:800;text-align:center;line-height:1}
+.atol-legal{border-top:1px solid #2a2a2a;padding:26px 0}
+.atol-legal .reg{color:#fff;font-weight:600;font-size:.9rem;text-align:center;margin-bottom:14px}
+.atol-legal small{display:block;color:#7e7e7e;font-size:.72rem;line-height:1.7;text-align:center;max-width:1000px;margin:0 auto}
+.foot-bottom{border-top:1px solid #2a2a2a;padding:22px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.foot-bottom .copy{font-size:.8rem;color:#8a8a8a}
+.pay{display:flex;gap:8px;flex-wrap:wrap}
+.pay span{background:#fff;color:#222;border-radius:5px;padding:5px 9px;font-size:.62rem;font-weight:800;letter-spacing:.02em}
+
+/* ---------------- REVEAL ---------------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media(max-width:1024px){
+  .featured-grid{grid-template-columns:repeat(2,1fr)}
+  .dest-card:nth-child(even){margin-top:0}
+  .pkg-grid{grid-template-columns:repeat(2,1fr)}
+  .foot-main{grid-template-columns:1fr 1fr}
+}
+@media(max-width:860px){
+  .nav-links,.nav .btn{display:none}
+  .burger{display:flex}
+  .nav-links.open{
+    display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;
+    background:#fff;border-bottom:1px solid var(--line);padding:18px 24px;gap:16px;box-shadow:0 16px 30px -16px rgba(0,0,0,.25);
+  }
+  .hero-inner{flex-direction:column;align-items:flex-start}
+  .hero-cards{width:100%}
+  .about-inner{grid-template-columns:1fr;gap:36px}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+  .g1,.g4{grid-row:auto;height:200px}
+  .g{height:200px}
+  .airlines-row{justify-content:center;gap:28px 36px}
+}
+@media(max-width:560px){
+  section{padding:60px 0}
+  .container{padding:0 18px}
+  .featured-grid,.pkg-grid{grid-template-columns:1fr}
+  .about-features{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr}
+  .hero-cards{flex-direction:column}
+  .tree-card{padding:40px 26px}
+  .foot-main{grid-template-columns:1fr}
+  .foot-bottom{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header>
+  <div class="container nav">
+    <a href="#" class="logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3.5 18.5l1-2.5 6-2 4-7.5 1.5.5-3 7 4-1.3.8-2 1.3.4-.6 3.4L3.5 18.5z"/></svg>
+      Travezy
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#packages">Packages</a>
+      <a href="#">Hotels</a>
+      <a href="#destinations">Destinations</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn">Enquire Now</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" style="padding-top:70px;padding-bottom:70px">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <span class="badge">Upto 25% Off • 11-Days</span>
+      <h1>Sri Lankan Safari &amp; Maldives</h1>
+      <p class="price">from <b>£2375</b> /PP</p>
+      <p>Experience the perfect blend of wildlife adventure and tropical luxury with this unforgettable 11-day Sri Lanka and Maldives escape with Travezy.</p>
+      <a href="#packages" class="btn">Explore This Package</a>
+    </div>
+    <div class="hero-cards">
+      <div class="hero-card">
+        <div class="label">Singapore &amp; Bali</div>
+        <div class="nights">10 Nights</div>
+        <div class="from">from <b>£1399.00</b> /pp</div>
+      </div>
+      <div class="hero-card">
+        <div class="label">Atlantis The Palm</div>
+        <div class="nights">5 Nights</div>
+        <div class="from">from <b>£999.00</b> /pp</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURED DESTINATIONS ===== -->
+<section id="destinations">
+  <div class="container">
+    <div class="heading-block reveal">
+      <span class="eyebrow">Top Destination</span>
+      <h2 class="section-title">Our Featured Destinations</h2>
+    </div>
+    <div class="featured-grid">
+      <article class="dest-card reveal">
+        <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=700&q=80" alt="Singapore">
+        <div class="info"><span class="tag">Singapore</span><h3>Gardens &amp;<br>Skyscrapers</h3></div>
+      </article>
+      <article class="dest-card reveal">
+        <img src="https://images.unsplash.com/photo-1547970810-dc1eac37d174?auto=format&fit=crop&w=700&q=80" alt="Kenya">
+        <div class="info"><span class="tag">Kenya</span><h3>Wild Serengeti</h3></div>
+      </article>
+      <article class="dest-card reveal">
+        <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=700&q=80" alt="Thailand">
+        <div class="info"><span class="tag">Thailand</span><h3>Tropical Paradise</h3></div>
+      </article>
+      <article class="dest-card reveal">
+        <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=700&q=80" alt="Maldives">
+        <div class="info"><span class="tag">Maldives</span><h3>Azure Escapes</h3></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+  <div class="container about-inner">
+    <div class="about-gallery reveal">
+      <div class="tall"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=500&q=80" alt="Mountains"></div>
+      <div class="sm"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=500&q=80" alt="Mountain lake"></div>
+      <div class="sm"><img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?auto=format&fit=crop&w=500&q=80" alt="Travellers"></div>
+    </div>
+    <div class="about-content reveal">
+      <span class="eyebrow">About Travezy</span>
+      <h2 class="section-title">Why Book with us ?</h2>
+      <p>At <b>Travezy</b>, we pride ourselves on crafting unforgettable travel experiences with complete peace of mind. As an <b>IATA Accredited (91204540)</b> and <b>ATOL Protected (11965)</b> travel company, your holiday is fully safeguarded from start to finish.</p>
+      <p>With years of expertise in designing tailor-made getaways, we combine unbeatable prices, trusted airline partners, and hand-picked hotels to ensure every trip exceeds expectations.</p>
+      <div class="about-features">
+        <div class="feature"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg></span>ATOL Protected</div>
+        <div class="feature"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12l10 6 10-6M12 2l9 5-9 5-9-5z"/></svg></span>IATA Accredited</div>
+        <div class="feature"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M8 13l-2 8 6-3 6 3-2-8"/></svg></span>11 Years of Trust</div>
+        <div class="feature"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>24/7 Support</div>
+      </div>
+      <a href="#about" class="btn">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== POPULAR PACKAGES ===== -->
+<section id="packages">
+  <div class="container">
+    <div class="heading-block center reveal">
+      <span class="eyebrow">Best Recommended Places</span>
+      <h2 class="section-title">Popular Destination we offer for all</h2>
+      <p class="lead">Explore the world's most loved destinations with Travezy. From breathtaking beaches to vibrant cities, we bring you the best travel experiences tailored for everyone.</p>
+    </div>
+    <div class="pkg-grid">
+      <!-- Card 1 -->
+      <article class="pkg-card reveal">
+        <div class="pkg-media">
+          <img src="https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?auto=format&fit=crop&w=600&q=80" alt="Seychelles">
+          <span class="pkg-nights">10 Nights</span>
+        </div>
+        <div class="pkg-body">
+          <div class="pkg-loc"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z"/></svg>Safari, Seychelles</div>
+          <h3>Safari &amp; Seychelles Escape</h3>
+          <div class="pkg-foot">
+            <div><span class="from">Starting From</span><span class="amt">£2799.00</span></div>
+            <a href="#" class="pkg-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+      <!-- Card 2 -->
+      <article class="pkg-card reveal">
+        <div class="pkg-media">
+          <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=600&q=80" alt="Kuala Lumpur">
+          <span class="pkg-nights">10 Nights</span>
+        </div>
+        <div class="pkg-body">
+          <div class="pkg-loc"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z"/></svg>Bali, KL, Singapore</div>
+          <h3>Singapore, Bali &amp; KL</h3>
+          <div class="pkg-foot">
+            <div><span class="from">Starting From</span><span class="amt">£1399.00</span></div>
+            <a href="#" class="pkg-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+      <!-- Card 3 -->
+      <article class="pkg-card reveal">
+        <div class="pkg-media">
+          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80" alt="Dubai">
+          <span class="pkg-nights">5 Nights</span>
+        </div>
+        <div class="pkg-body">
+          <div class="pkg-loc"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z"/></svg>Dubai, UAE</div>
+          <h3>Atlantis The Palm, Dubai</h3>
+          <div class="pkg-foot">
+            <div><span class="from">Starting From</span><span class="amt">£999.00</span></div>
+            <a href="#" class="pkg-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+      <!-- Card 4 -->
+      <article class="pkg-card reveal">
+        <div class="pkg-media">
+          <img src="https://images.unsplash.com/photo-1456926631375-92c8ce872def?auto=format&fit=crop&w=600&q=80" alt="Serengeti leopard">
+          <span class="pkg-nights">12 Nights</span>
+        </div>
+        <div class="pkg-body">
+          <div class="pkg-loc"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z"/></svg>Serengeti, Zanzibar</div>
+          <h3>Serengeti &amp; Zanzibar Escape</h3>
+          <div class="pkg-foot">
+            <div><span class="from">Starting From</span><span class="amt">£1799.00</span></div>
+            <a href="#" class="pkg-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="btn-center">
+      <a href="#packages" class="btn">View All Packages <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section style="padding-top:0">
+  <div class="container">
+    <div class="heading-block center reveal">
+      <span class="eyebrow">Make Your Tour More Pleasure</span>
+      <h2 class="section-title">Recent Gallery</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="g g1 reveal"><img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=600&q=80" alt="Beach dock"></div>
+      <div class="g g2 reveal"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80" alt="Boat aerial"></div>
+      <div class="g g4 reveal"><img src="https://images.unsplash.com/photo-1517824806704-9040b037703b?auto=format&fit=crop&w=800&q=80" alt="Desert camp at night"></div>
+      <div class="g g3 reveal"><img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=600&q=80" alt="Palm leaf"></div>
+    </div>
+    <div class="btn-center">
+      <a href="#packages" class="btn">View All Packages <span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TREE CTA ===== -->
+<section class="tree">
+  <div class="container">
+    <div class="tree-card reveal">
+      <span class="tree-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="#5ec16e"><path d="M12 2L7 9h3l-4 6h4l-3 5h10l-3-5h4l-4-6h3z"/></svg> <b id="treeCount">1,712</b> Trees planted</span>
+      <h2>You Book a Holiday <span>We Plant a Tree</span></h2>
+      <p>Every journey with Travezy contributes to our global reforestation efforts. Travel the world and leave it better than you found it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AIRLINES ===== -->
+<div class="airlines">
+  <div class="container airlines-row">
+    <div class="airline"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>Turkish Airlines</div>
+    <div class="airline"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>British Airways</div>
+    <div class="airline"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>Qatar Airways</div>
+    <div class="airline"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>Swiss</div>
+    <div class="airline"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>American</div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer id="contact">
+  <div class="container">
+    <div class="foot-main">
+      <div class="foot-col">
+        <div class="foot-logo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3.5 18.5l1-2.5 6-2 4-7.5 1.5.5-3 7 4-1.3.8-2 1.3.4-.6 3.4L3.5 18.5z"/></svg>
+          Travezy
+        </div>
+        <p>At Travezy, we pride ourselves on being one of the leading travel service providers. We specialize in creating tailored holiday packages designed to turn your dream getaway into reality.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="#">Booking Conditions</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <ul class="foot-contact">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z"/></svg>100 Avebury Boulevard, Milton Keynes, MK9 1FH</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.2 2.2z"/></svg>+44 208 150 8552</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5h18v14H3z" opacity=".0"/><path d="M3 5h18a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1zm9 7L4 7v1l8 5 8-5V7l-8 5z"/></svg>info@escapesworldwide.co.uk</li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Follow Us</h4>
+        <div class="foot-social">
+          <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4a3.5 3.5 0 01-1.4-.9 3.5 3.5 0 01-.9-1.4c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.1A6.7 6.7 0 1018.7 12 6.7 6.7 0 0012 5.3zm0 11A4.3 4.3 0 1116.3 12 4.3 4.3 0 0112 16.3zM18.9 5a1.6 1.6 0 11-1.6-1.6A1.6 1.6 0 0118.9 5z"/></svg>Instagram</a>
+          <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg>Facebook</a>
+        </div>
+        <div class="cert-badges">
+          <span>ATOL</span>
+          <span>IATA</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="atol-legal">
+      <p class="reg">Travezy is a trading name of Transglobe Solution Ltd. Registered in England No. 09120403. VAT Registration no- 218057223.</p>
+      <small>All the flight-inclusive holidays on this website are financially protected by the ATOL scheme. When you pay you will be supplied with an ATOL Certificate. Please ask for it and check to ensure that everything you booked (flights, hotels and other services) is listed on it. If you do receive an ATOL Certificate but all the parts of your trip are not listed on it, those parts will not be ATOL protected. Some of the flights on this website are also financially protected by the ATOL scheme, but ATOL protection does not apply to all flights. Travezy will provide you with information on the protection that applies in the case of each flight before you make your booking. If you do not receive an ATOL Certificate, then the booking will not be ATOL protected. Please see our booking conditions for information, or for more information about financial protection and the ATOL Certificate go to: www.caa.co.uk. ATOL protection does not apply to the other holiday and travel services listed on this website.</small>
+    </div>
+
+    <div class="foot-bottom">
+      <span class="copy">Copyright © 2026 Travezy UK All right reserved.</span>
+      <div class="pay">
+        <span>VISA</span><span>MASTERCARD</span><span>AMERICAN EXPRESS</span><span>Apple Pay</span><span>G Pay</span><span>Maestro</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mobile nav
+const burger=document.getElementById('burger');
+const navLinks=document.getElementById('navLinks');
+burger.addEventListener('click',()=>navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+
+// Scroll reveal
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Trees counter animation
+const treeEl=document.getElementById('treeCount');
+const target=1712;
+const counterIO=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      let n=0;const step=Math.ceil(target/60);
+      const t=setInterval(()=>{n+=step;if(n>=target){n=target;clearInterval(t);}treeEl.textContent=n.toLocaleString();},22);
+      counterIO.unobserve(e.target);
+    }
+  });
+},{threshold:.5});
+counterIO.observe(treeEl);
+</script>
+</body>
+</html>
