@@ -1,18 +1,59 @@
 // Nav shrink on scroll
 const nav = document.getElementById('nav');
-const heroImg = document.getElementById('heroImg');
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function onScroll() {
-  const y = window.pageYOffset;
-  nav.classList.toggle('shrink', y > 50);
-  // Hero parallax
-  if (heroImg && !reduceMotion) {
-    heroImg.style.transform = `translateY(${y * 0.4}px)`;
-  }
+  nav.classList.toggle('shrink', window.pageYOffset > 50);
 }
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
+
+// Hero Slider
+(function () {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dots .dot');
+  const prevBtn = document.querySelector('.hero-prev');
+  const nextBtn = document.querySelector('.hero-next');
+  let current = 0;
+  let timer;
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('active');
+
+    dots.forEach((dot, i) => {
+      dot.classList.remove('active', 'done');
+      if (i < current) dot.classList.add('done');
+    });
+
+    // Force animation restart on the active dot's fill
+    const fill = dots[current].querySelector('.dot-fill');
+    fill.style.animation = 'none';
+    void fill.offsetWidth;
+    fill.style.animation = '';
+    dots[current].classList.add('active');
+  }
+
+  function startAuto() {
+    clearInterval(timer);
+    timer = setInterval(() => goTo(current + 1), 2000);
+  }
+
+  prevBtn.addEventListener('click', () => { goTo(current - 1); startAuto(); });
+  nextBtn.addEventListener('click', () => { goTo(current + 1); startAuto(); });
+  dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); startAuto(); }));
+
+  // Touch swipe
+  let touchX = 0;
+  const heroEl = document.querySelector('.hero');
+  heroEl.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+  heroEl.addEventListener('touchend', e => {
+    const diff = touchX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { goTo(diff > 0 ? current + 1 : current - 1); startAuto(); }
+  }, { passive: true });
+
+  startAuto();
+}());
 
 
 // Seamless marquee — duplicate the airline set so the -50% loop has no gap
