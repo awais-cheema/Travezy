@@ -527,19 +527,44 @@ header.hero {
   }
 }
 
+@keyframes qcard-in {
+  from {
+    opacity: 0;
+    transform: translateX(36px)
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0)
+  }
+}
+
+.hero-slide .qcard {
+  opacity: 0;
+  transform: translateX(36px)
+}
+
+.hero-slide.active .qcard:nth-child(1) {
+  animation: qcard-in .5s ease .25s forwards
+}
+
+.hero-slide.active .qcard:nth-child(2) {
+  animation: qcard-in .5s ease .42s forwards
+}
+
 .qcard {
-  background: rgba(255, 255, 255, .1);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, .2);
+  background: linear-gradient(135deg, rgba(30, 0, 4, .55) 0%, rgba(0, 0, 0, .42) 100%);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(187, 0, 19, .18);
   padding: 24px;
   border-radius: 12px;
   color: #fff;
-  transition: .3s;
+  transition: background .3s;
   cursor: pointer
 }
 
 .qcard:hover {
-  background: rgba(255, 255, 255, .2)
+  background: linear-gradient(135deg, rgba(40, 0, 6, .65) 0%, rgba(0, 0, 0, .52) 100%)
 }
 
 .qcard .loc {
@@ -1081,6 +1106,10 @@ header.hero {
   height: 100%;
   object-fit: cover;
   transition: transform .5s
+}
+
+.pos-left img {
+  object-position: left center
 }
 
 .gal-item:hover img {
