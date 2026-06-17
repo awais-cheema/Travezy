@@ -49,7 +49,7 @@ button {
 
 .wrap {
   margin: 0 auto;
-  padding-inline: 16px
+  padding-inline: 14vw
 }
 
 @media(min-width:768px) {
@@ -79,7 +79,7 @@ button {
 .headline {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  font-size: 24px;
+  font-size: clamp(18px, 1.67vw, 32px);
   line-height: 1.33
 }
 
@@ -142,8 +142,8 @@ button {
   background: var(--primary);
   color: #fff;
   text-align: center;
-  padding: 9px 16px;
-  font-size: 14px;
+  padding: 12px 16px;
+  font-size: clamp(0.95vw, 0.95vw, 16px);
   font-weight: 400;
   letter-spacing: .02em;
   line-height: 1.4
@@ -158,7 +158,7 @@ button {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 50
+  z-index: 50;
 }
 
 /* NAV */
@@ -175,21 +175,16 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.2vw 7vw;
+  padding: 1.3vw 7vw;
 }
 
-@media(min-width:768px) {
-  .nav-inner {
-    padding: clamp(10px, 0.83vw, 20px) 7vw
-  }
-}
 
 nav.shrink .nav-inner {
-  padding-block: 8px
+  padding-block: 18px
 }
 
 .nav-logo {
-  width: 10vw;
+  width: 10.3vw;
   height: auto;
   object-fit: contain;
   transition: transform .2s
@@ -199,15 +194,9 @@ nav.shrink .nav-inner {
   transform: scale(.95)
 }
 
-@media(min-width:768px) {
-  .nav-logo {
-    height: 64px
-  }
-}
-
 .nav-links {
   display: none;
-  gap: 32px;
+  gap: clamp(20px, 3.22vw, 48px);
   align-items: center;
   margin: 0 auto
 }
@@ -220,7 +209,7 @@ nav.shrink .nav-inner {
 
 .nav-links a {
   font-weight: 600;
-  font-size: 14px;
+  font-size: clamp(1vw, 1.5vw, 16px);
   letter-spacing: .05em;
   transition: color .3s
 }
@@ -1901,56 +1890,64 @@ footer {
 @media (max-width: 1023px) {
   .nav-links { display: none }
   .nav-phone { display: none }
-  .burger    { display: flex; align-items: center; justify-content: center; padding: 8px; border-radius: 8px }
-  .nav-inner { padding: 10px 16px }
-  .nav-logo  { height: 40px; width: auto }
+  .burger    { display: flex; align-items: center; justify-content: center; padding: 8px; border-radius: 10px }
+  .nav-inner { padding: 18px 5vw }
+  .nav-logo  { width: 35vw }
 
-  /* Dropdown panel */
+  /* Dropdown panel — floating card */
   nav.menu-open .nav-links {
     display: flex;
     flex-direction: column;
     position: absolute;
     top: 100%; left: 0; right: 0;
-    background: rgba(255,255,255,.98);
-    backdrop-filter: blur(16px);
-    padding: 0;
-    gap: 0;
+    background: #fff;
+    border-radius: 0 0 24px 24px;
+    padding: 10px 12px 14px;
+    gap: 3px;
     margin: 0;
-    box-shadow: 0 16px 32px -12px rgba(0,0,0,.2);
-    border-top: 1px solid rgba(231,188,184,.4);
+    box-shadow: 0 28px 48px -10px rgba(0,0,0,.18), 0 0 0 1px rgba(231,188,184,.35);
+    border-top: 2px solid rgba(187,0,19,.12);
     z-index: 100;
-    animation: menu-slide-in .2s ease forwards
+    animation: menu-slide-in .22s ease forwards
   }
 
+  /* Individual link items — pill style */
   nav.menu-open .nav-links a {
-    padding: 14px 20px;
+    padding: 13px 16px;
     font-size: 15px;
+    font-weight: 600;
     letter-spacing: .03em;
-    border-bottom: 1px solid rgba(231,188,184,.3)
+    border-radius: 12px;
+    color: var(--on-surface);
+    transition: background .18s, color .18s
   }
 
-  nav.menu-open .nav-links a:last-child { border-bottom: none }
+  nav.menu-open .nav-links a:hover {
+    background: rgba(187,0,19,.06);
+    color: var(--primary)
+  }
 
+  /* Active page highlight */
   nav.menu-open .nav-links a.active {
     color: var(--primary);
+    background: rgba(187,0,19,.07);
     border-left: 3px solid var(--primary);
-    padding-left: 17px;
-    border-bottom: 1px solid rgba(231,188,184,.3);
-    padding-bottom: 14px
+    padding-left: 13px
   }
 
-  /* Phone call-to-action row at bottom of mobile menu */
+  /* Phone CTA row pinned at bottom */
   nav.menu-open .nav-links .mobile-phone-link {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 13px 20px;
+    margin-top: 6px;
+    padding: 14px 16px;
     font-weight: 700;
     font-size: 15px;
     color: var(--primary);
-    border-top: 2px solid rgba(187,0,19,.15);
-    border-bottom: none;
-    background: rgba(187,0,19,.04);
+    background: rgba(187,0,19,.06);
+    border: 1.5px solid rgba(187,0,19,.18);
+    border-radius: 12px;
     letter-spacing: .04em
   }
 }
@@ -1958,7 +1955,7 @@ footer {
 /* ---- max 767px: mobile ---- */
 @media (max-width: 767px) {
 
-  .announcement-bar { font-size: 12px; padding: 8px 12px }
+  .announcement-bar { font-size: 2.4vw; padding: 8px 12px }
 
   /* Hero */
   .hero-slide  { padding-top: 110px }
