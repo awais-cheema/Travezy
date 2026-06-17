@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Travezy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/x-icon" href="/Favicon.png">
+</head>
+<body>
+
+<!-- SITE HEADER -->
+<div id="site-header">
+  <div class="announcement-bar">
+    Browse our Early Booking Discounts and <strong>Special Offer Holiday Packages</strong>
+  </div>
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="index.html"><img class="nav-logo" src="/Travezy.webp" alt="Travezy"></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="tour-packages.html">Tour Packages</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+      </div>
+      <a href="tel:+442083233220" class="nav-phone">
+        <span class="material-symbols-outlined">phone_in_talk</span><span class="nav-phone-text"><span class="phone-ext">EXT#800</span>020 8323 3220</span>
+      </a>
+      <button class="burger" aria-label="Menu"><span class="material-symbols-outlined">menu</span></button>
+    </div>
+  </nav>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtsTVR7N2vTiOHCk5xhK4jFVbAvlvcrP9_00l_xPQvV0JjKcDTd8q7yYnf9PooV-EPg9pa7z9zCpdfD3efqcsI-l90RnLDJsozL6kErXamhq8oAkXNrYnBmlXcTy87MxoE9yPthMPtX7OGxi3g8HXLBeH5LKuddY2XudyNnkm8h2b3BGmJ31zvyG3QzyG1WgrX-z-Ebn8RX8tpl5vaHzona9hoKbwxA9tirAaskRhKI9O2-XMB36GecOPT3hqi7KAlWaUJbpTq_ck" alt="Contact Travezy">
+    <div class="page-hero-grad"></div>
+  </div>
+  <div class="page-hero-inner wrap">
+    <span class="eyebrow">We'd Love to Hear From You</span>
+    <h1 class="display">Get in Touch</h1>
+    <p>Ready to start planning your next adventure? Our travel experts are here to help, seven days a week.</p>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="section wrap">
+  <div class="contact-grid">
+
+    <!-- LEFT: Info + Hours -->
+    <div>
+      <div class="contact-info-cards">
+
+        <div class="contact-card">
+          <div class="contact-card-ic"><span class="material-symbols-outlined">location_on</span></div>
+          <div>
+            <h5>Our Office</h5>
+            <p>100 Avebury Boulevard<br>Milton Keynes, MK9 1FH<br>United Kingdom</p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-ic"><span class="material-symbols-outlined">phone_in_talk</span></div>
+          <div>
+            <h5>Phone</h5>
+            <p><a href="tel:+442083233220">020 8323 3220<span class="phone-ext"> EXT#800</span></a></p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-ic"><span class="material-symbols-outlined">mail</span></div>
+          <div>
+            <h5>Email</h5>
+            <p><a href="mailto:info@travezy.co.uk">info@travezy.co.uk</a></p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-ic"><span class="material-symbols-outlined">schedule</span></div>
+          <div style="width:100%">
+            <h5>Opening Hours</h5>
+            <ul class="hours-list" style="margin-top:12px">
+              <li><span class="day">Monday – Friday</span><span class="time">9:00 am – 6:00 pm</span></li>
+              <li><span class="day">Saturday</span><span class="time">10:00 am – 4:00 pm</span></li>
+              <li><span class="day">Sunday</span><span class="time">Closed</span></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Map -->
+      <div class="map-wrap" style="margin-top:24px">
+        <iframe
+          src="https://maps.google.com/maps?q=100+Avebury+Boulevard+Milton+Keynes+MK9+1FH&output=embed"
+          title="Travezy Office Location"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- RIGHT: Form -->
+    <div class="contact-form">
+      <h3>Send Us a Message</h3>
+      <p>Fill in the form below and a member of our team will get back to you within one business day.</p>
+
+      <form action="mailto:info@travezy.co.uk" method="POST" enctype="text/plain">
+
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first_name" placeholder="Jane" required>
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last_name" placeholder="Smith" required>
+          </div>
+        </div>
+
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+44 7700 000000">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="destination">Destination / Package of Interest</label>
+            <select id="destination" name="destination">
+              <option value="" disabled selected>Select a destination…</option>
+              <option>Safari &amp; Seychelles</option>
+              <option>Singapore, Bali &amp; KL</option>
+              <option>Atlantis The Palm, Dubai</option>
+              <option>Serengeti &amp; Zanzibar</option>
+              <option>Sri Lankan Safari &amp; Maldives</option>
+              <option>Thailand Tropical Paradise</option>
+              <option>Sri Lanka Grand Tour</option>
+              <option>Kenya Wildlife Safari</option>
+              <option>Other / Bespoke</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your travel plans, number of travellers, preferred dates, and any special requests…" required></textarea>
+          </div>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn">Send Message <span class="material-symbols-outlined">send</span></button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ATOL NOTE -->
+<section class="section" style="background:var(--surface-low);padding-block:48px">
+  <div class="wrap" style="text-align:center;max-width:760px;margin:0 auto">
+    <div class="badge-dark-wrap" style="margin:0 auto 24px">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx63DtyRCqE5uW4VwhOZTgeGsts-RzoRzvlFS9wBlfcQbehSmSJE4DHa8i0OC08yIXpxBDcL269kfXtaY8r64hQKT5WGXd0mM5N3tB25vdla42zR6S_yl7YjYky3wgr6y3TgTnZagTaT9-r9_P2W_6wEIAyyUY_fR7vg4XmdMmi8q1BIs5z624RTp_rubBG0zapmzHm2TBzw9E9mISJqqozDKsmCGEuETE_T6vIupMfw5dCSape7qRnjX-pU_xWNRokwPupBUEkRc" alt="ATOL and IATA Protected" style="height:64px;width:auto">
+    </div>
+    <p style="font-size:14px;color:var(--on-surface-variant);line-height:1.8">Travezy is <strong>ATOL Protected (11965)</strong> and <strong>IATA Accredited (91204540)</strong>. Your money is fully protected when you book with us. Travezy is a trading name of Transglobe Solution Ltd. Registered in England No. 09120403.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <img class="foot-logo" src="/Travezy.webp" alt="Travezy">
+        <p>At Travezy, we pride ourselves on being one of the leading travel service providers. We specialize in creating tailored holiday packages designed to turn your dream getaway into reality.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="tour-packages.html">Tour Packages</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="#">Booking Conditions</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <ul>
+          <li class="row"><span class="material-symbols-outlined">location_on</span><span>100 Avebury Boulevard, Milton Keynes, MK9 1FH</span></li>
+          <li class="row"><span class="material-symbols-outlined">phone_in_talk</span><a href="tel:+442083233220">020 8323 3220<span class="phone-ext"> EXT#800</span></a></li>
+          <li class="row"><span class="material-symbols-outlined">mail</span><a href="mailto:info@travezy.co.uk">info@travezy.co.uk</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Follow Us</h4>
+        <ul style="margin-bottom:32px">
+          <li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li>
+        </ul>
+        <img class="badge-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx63DtyRCqE5uW4VwhOZTgeGsts-RzoRzvlFS9wBlfcQbehSmSJE4DHa8i0OC08yIXpxBDcL269kfXtaY8r64hQKT5WGXd0mM5N3tB25vdla42zR6S_yl7YjYky3wgr6y3TgTnZagTaT9-r9_P2W_6wEIAyyUY_fR7vg4XmdMmi8q1BIs5z624RTp_rubBG0zapmzHm2TBzw9E9mISJqqozDKsmCGEuETE_T6vIupMfw5dCSape7qRnjX-pU_xWNRokwPupBUEkRc" alt="ATOL and IATA Protected">
+      </div>
+    </div>
+    <div class="legal">
+      <h5>Travezy is a trading name of Transglobe Solution Ltd. Registered in England No. 09120403. VAT Registration no- 218057223.</h5>
+      <p>All the flight-inclusive holidays on this website are financially protected by the ATOL scheme. When you pay you will be supplied with an ATOL Certificate. Please ask for it and check to ensure that everything you booked (flights, hotels and other services) is listed on it. If you do receive an ATOL Certificate but all the parts of your trip are not listed on it, those parts will not be ATOL protected. Some of the flights on this website are also financially protected by the ATOL scheme, but ATOL protection does not apply to all flights. Travezy will provide you with information on the protection that applies in the case of each flight before you make your booking. If you do not receive an ATOL Certificate, then the booking will not be ATOL protected. Please see our booking conditions for information, or for more information about financial protection and the ATOL Certificate go to: www.caa.co.uk.</p>
+    </div>
+  </div>
+  <div class="botbar">
+    <div class="wrap botbar-in">
+      <p>Copyright &copy; 2026 Travezy UK. All rights reserved.</p>
+      <img src="/Images/Payments.webp" alt="Accepted payment methods" style="height:auto;width:28vw;display:block">
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+

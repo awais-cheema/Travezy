@@ -86,7 +86,14 @@ button {
 
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-  vertical-align: middle
+  vertical-align: middle;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  flex-shrink: 0
 }
 
 .fill .material-symbols-outlined,
@@ -236,7 +243,7 @@ nav.shrink .nav-inner {
   align-items: center;
   gap: 8px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 1.15vw;
   color: var(--primary);
   white-space: nowrap;
   transition: color .3s
@@ -244,6 +251,19 @@ nav.shrink .nav-inner {
 
 .nav-phone:hover {
   color: var(--on-surface)
+}
+
+.nav-phone-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25
+}
+
+.phone-ext {
+  font-size: 0.72em;
+  font-weight: 400;
+  opacity: 0.55;
+  letter-spacing: .04em
 }
 
 @media(min-width:768px) {
@@ -959,7 +979,7 @@ header.hero {
   border-radius: 24px;
   overflow: hidden;
   border: 1px solid rgba(231, 188, 184, .1);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .10);
   transition: box-shadow .5s
 }
 
@@ -1398,5 +1418,635 @@ footer {
     animation: none !important;
     transition: none !important
   }
+}
 
+/* ============================================================
+   INNER PAGES — shared across destinations / packages / about / contact
+   ============================================================ */
+
+/* PAGE HERO */
+.page-hero {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  padding-top: 130px;
+  overflow: hidden
+}
+
+.page-hero-bg {
+  position: absolute;
+  inset: 0
+}
+
+.page-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover
+}
+
+.page-hero-grad {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,.78) 0%, rgba(0,0,0,.38) 55%, rgba(0,0,0,.12) 100%)
+}
+
+.page-hero-inner {
+  position: relative;
+  z-index: 10;
+  color: #fff;
+  padding-block: 56px
+}
+
+.page-hero-inner .eyebrow {
+  color: var(--primary-fixed)
+}
+
+.page-hero-inner h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: clamp(36px, 5vw, 56px);
+  letter-spacing: -.02em;
+  line-height: 1.1;
+  margin: 12px 0 20px
+}
+
+.page-hero-inner p {
+  font-size: 18px;
+  max-width: 38rem;
+  color: rgba(255,255,255,.82);
+  line-height: 1.7
+}
+
+/* FILTER TABS */
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 48px
+}
+
+.filter-tab {
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: 1.5px solid var(--outline-variant);
+  background: transparent;
+  color: var(--on-surface);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: .05em;
+  cursor: pointer;
+  transition: .3s
+}
+
+.filter-tab:hover,
+.filter-tab.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  box-shadow: 0 6px 18px -4px rgba(187,0,19,.4)
+}
+
+/* DESTINATION GRID FULL (no offset on inner page) */
+.dest-grid.full .dest.offset {
+  margin-top: 0
+}
+
+/* CTA BANNER */
+.cta-banner {
+  background: linear-gradient(135deg, #bb0013 0%, #e51a22 100%);
+  border-radius: 24px;
+  padding: 64px 48px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden
+}
+
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  top: -50px; right: -50px;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.12)
+}
+
+.cta-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -70px; left: -50px;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.08)
+}
+
+.cta-banner .eyebrow {
+  color: rgba(255,255,255,.8)
+}
+
+.cta-banner h2 {
+  color: #fff;
+  margin-bottom: 16px
+}
+
+.cta-banner p {
+  color: rgba(255,255,255,.85);
+  font-size: 18px;
+  max-width: 36rem;
+  margin: 0 auto 32px;
+  line-height: 1.7
+}
+
+.cta-banner .btn {
+  background: #fff;
+  color: var(--primary);
+  box-shadow: none
+}
+
+.cta-banner .btn:hover {
+  background: var(--on-surface);
+  color: #fff
+}
+
+/* VALUES GRID */
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px
+}
+
+@media(min-width: 640px) {
+  .values-grid {
+    grid-template-columns: 1fr 1fr
+  }
+}
+
+@media(min-width: 1024px) {
+  .values-grid {
+    grid-template-columns: repeat(3, 1fr)
+  }
+}
+
+.value-card {
+  background: #fff;
+  border: 1px solid var(--outline-variant);
+  border-radius: 20px;
+  padding: 32px 28px;
+  transition: transform .3s, box-shadow .3s
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -12px rgba(187,0,19,.15)
+}
+
+.value-card-ic {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--primary) 0%, #ff3b4e 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 20px -6px rgba(187,0,19,.4)
+}
+
+.value-card h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 12px
+}
+
+.value-card p {
+  color: var(--on-surface-variant);
+  line-height: 1.7
+}
+
+/* ACCREDITATIONS SECTION */
+.accred-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px
+}
+
+@media(min-width: 768px) {
+  .accred-grid {
+    grid-template-columns: 1fr 1fr
+  }
+}
+
+.accred-card {
+  background: #fff;
+  border: 1px solid var(--outline-variant);
+  border-radius: 20px;
+  padding: 36px 32px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  transition: box-shadow .3s
+}
+
+.accred-card:hover {
+  box-shadow: 0 16px 40px -10px rgba(187,0,19,.12)
+}
+
+.accred-ic {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--primary) 0%, #ff3b4e 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px -6px rgba(187,0,19,.4)
+}
+
+.accred-card h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 8px
+}
+
+.accred-card p {
+  color: var(--on-surface-variant);
+  line-height: 1.7
+}
+
+/* CONTACT */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: start
+}
+
+@media(min-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1fr 1.5fr
+  }
+}
+
+.contact-info-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px
+}
+
+.contact-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: #fff;
+  border: 1px solid var(--outline-variant);
+  border-radius: 16px;
+  padding: 24px;
+  transition: box-shadow .3s, transform .3s
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -8px rgba(187,0,19,.15)
+}
+
+.contact-card-ic {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--primary) 0%, #ff3b4e 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px -4px rgba(187,0,19,.4)
+}
+
+.contact-card h5 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 6px
+}
+
+.contact-card p,
+.contact-card a {
+  font-size: 15px;
+  color: var(--on-surface-variant);
+  line-height: 1.6
+}
+
+.contact-card a:hover { color: var(--primary) }
+
+.hours-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column
+}
+
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--outline-variant);
+  font-size: 15px
+}
+
+.hours-list li:last-child { border-bottom: none }
+.hours-list .day { color: var(--on-surface-variant) }
+.hours-list .time { font-weight: 600 }
+
+/* CONTACT FORM */
+.contact-form {
+  background: #fff;
+  border: 1px solid var(--outline-variant);
+  border-radius: 24px;
+  padding: 40px
+}
+
+.contact-form h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  margin-bottom: 8px
+}
+
+.contact-form > p {
+  color: var(--on-surface-variant);
+  margin-bottom: 32px
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 20px
+}
+
+@media(min-width: 640px) {
+  .form-row.two-col {
+    grid-template-columns: 1fr 1fr
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant)
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 14px 16px;
+  border: 1.5px solid var(--outline-variant);
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: var(--on-surface);
+  background: var(--bg);
+  transition: border-color .3s, box-shadow .3s;
+  outline: none;
+  appearance: none
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(187,0,19,.1)
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 130px
+}
+
+.form-submit {
+  margin-top: 8px
+}
+
+.form-submit .btn {
+  width: 100%;
+  justify-content: center
+}
+
+/* ACCRED LOGO BOX — dark crop container replacing the icon */
+.accred-logo-box {
+  background: #1b1c1c;
+  border-radius: 14px;
+  width: 136px;
+  height: 72px;
+  flex-shrink: 0;
+  overflow: hidden
+}
+
+.accred-logo-box img {
+  width: 136px;
+  height: 72px;
+  object-fit: cover
+}
+
+.atol-badge { object-position: 0% center }
+.iata-badge { object-position: 100% center }
+
+/* Wrap a light-on-transparent logo on a dark pill */
+.badge-dark-wrap {
+  background: #1b1c1c;
+  border-radius: 14px;
+  padding: 16px 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center
+}
+
+/* MAP */
+.map-wrap {
+  border-radius: 20px;
+  overflow: hidden;
+  height: 340px;
+  border: 1px solid var(--outline-variant)
+}
+
+.map-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET & MOBILE
+   ============================================================ */
+
+@keyframes menu-slide-in {
+  from { opacity: 0; transform: translateY(-6px) }
+  to   { opacity: 1; transform: translateY(0) }
+}
+
+/* Phone link injected by JS — hidden at desktop widths */
+.mobile-phone-link { display: none }
+
+/* ---- max 1023px: collapse to burger for mobile + tablet ---- */
+@media (max-width: 1023px) {
+  .nav-links { display: none }
+  .nav-phone { display: none }
+  .burger    { display: flex; align-items: center; justify-content: center; padding: 8px; border-radius: 8px }
+  .nav-inner { padding: 10px 16px }
+  .nav-logo  { height: 40px; width: auto }
+
+  /* Dropdown panel */
+  nav.menu-open .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: rgba(255,255,255,.98);
+    backdrop-filter: blur(16px);
+    padding: 0;
+    gap: 0;
+    margin: 0;
+    box-shadow: 0 16px 32px -12px rgba(0,0,0,.2);
+    border-top: 1px solid rgba(231,188,184,.4);
+    z-index: 100;
+    animation: menu-slide-in .2s ease forwards
+  }
+
+  nav.menu-open .nav-links a {
+    padding: 14px 20px;
+    font-size: 15px;
+    letter-spacing: .03em;
+    border-bottom: 1px solid rgba(231,188,184,.3)
+  }
+
+  nav.menu-open .nav-links a:last-child { border-bottom: none }
+
+  nav.menu-open .nav-links a.active {
+    color: var(--primary);
+    border-left: 3px solid var(--primary);
+    padding-left: 17px;
+    border-bottom: 1px solid rgba(231,188,184,.3);
+    padding-bottom: 14px
+  }
+
+  /* Phone call-to-action row at bottom of mobile menu */
+  nav.menu-open .nav-links .mobile-phone-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 20px;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--primary);
+    border-top: 2px solid rgba(187,0,19,.15);
+    border-bottom: none;
+    background: rgba(187,0,19,.04);
+    letter-spacing: .04em
+  }
+}
+
+/* ---- max 767px: mobile ---- */
+@media (max-width: 767px) {
+
+  .announcement-bar { font-size: 12px; padding: 8px 12px }
+
+  /* Hero */
+  .hero-slide  { padding-top: 110px }
+  .hero h1     { font-size: clamp(26px, 7.5vw, 36px) }
+  .price       { font-size: 36px }
+  .hero p.lead { font-size: 16px }
+  .hero-arrow  { width: 36px; height: 36px }
+  .hero-prev   { left: 10px }
+  .hero-next   { right: 10px }
+
+  /* Mosaic — flatten to a 2-col image grid, drop absolute overlay pieces */
+  .mosaic {
+    position: static;
+    height: auto;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-areas: "a b" "badge badge";
+    gap: 10px
+  }
+  .mos-a {
+    position: static; width: 100%; height: 190px;
+    grid-area: a; border-radius: 14px
+  }
+  .mos-b {
+    position: static; width: 100%; height: 190px;
+    grid-area: b; border-radius: 14px; border: none; box-shadow: none
+  }
+  .mos-c, .mos-dots, .mos-ring { display: none }
+  .mos-badge {
+    position: static; grid-area: badge;
+    width: fit-content;
+    box-shadow: 0 4px 16px rgba(187,0,19,.15)
+  }
+
+  /* Gallery */
+  .gal-grid { height: auto; gap: 8px }
+  .gal-item { height: 150px }
+  .gal-tall { grid-row: span 1; height: 150px }
+  .gal-big  { grid-column: span 2; grid-row: span 1; height: 175px }
+
+  /* Stats cards */
+  .stat   { padding: 16px 14px }
+  .stat b { font-size: 13px }
+
+  /* Plant section */
+  .plant     { padding: 40px 24px }
+  .tree-pill { font-size: 16px; padding: 10px 18px; gap: 12px }
+
+  /* CTA banner */
+  .cta-banner   { padding: 48px 24px; border-radius: 16px }
+  .cta-banner p { font-size: 16px }
+
+  /* Page hero */
+  .page-hero         { padding-top: 110px; min-height: 300px }
+  .page-hero-inner   { padding-block: 40px }
+  .page-hero-inner p { font-size: 15px }
+
+  /* Contact form */
+  .contact-form { padding: 28px 20px }
+
+  /* Accreditation cards */
+  .accred-card { flex-direction: column }
+
+  /* Map */
+  .map-wrap { height: 260px }
+
+  /* Footer */
+  .botbar-in > img { width: 60vw !important }
+  .legal h5        { font-size: 15px }
+}
+
+/* ---- 768–1023px: tablet ---- */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+  /* Mosaic — smaller but keep absolute layout */
+  .mosaic { height: 460px }
+
+  /* Gallery */
+  .gal-grid { height: 440px }
+
+  /* Footer: 2-col grid instead of 4 */
+  .foot-grid { grid-template-columns: 1fr 1fr; gap: 40px }
+
+  /* CTA banner */
+  .cta-banner { padding: 56px 40px }
 }

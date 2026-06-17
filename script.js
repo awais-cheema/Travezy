@@ -10,6 +10,7 @@ onScroll();
 // Hero Slider
 (function () {
   const slides = document.querySelectorAll('.hero-slide');
+  if (!slides.length) return;
   const dots = document.querySelectorAll('.hero-dots .dot');
   const prevBtn = document.querySelector('.hero-prev');
   const nextBtn = document.querySelector('.hero-next');
@@ -62,24 +63,40 @@ if (track) {
   track.append(...Array.from(track.children).map(n => n.cloneNode(true)));
 }
 
-// Mobile nav toggle — slide the desktop links into a dropdown panel
+// Mobile nav toggle — class-based, works up to 1023px
 const burger = document.querySelector('.burger');
-const links = document.querySelector('.nav-links');
-if (burger && links) {
+const navEl  = document.getElementById('nav');
+const links  = document.querySelector('.nav-links');
+
+if (burger && links && navEl) {
+  // Inject phone CTA at bottom of mobile menu (hidden on desktop via CSS)
+  if (!links.querySelector('.mobile-phone-link')) {
+    const tel = document.createElement('a');
+    tel.href = 'tel:+442083233220';
+    tel.className = 'mobile-phone-link';
+    tel.innerHTML = '<span class="material-symbols-outlined">phone_in_talk</span>020 8323 3220';
+    links.appendChild(tel);
+  }
+
+  // Transparent backdrop — clicking outside the nav closes the menu
+  const backdrop = document.createElement('div');
+  backdrop.style.cssText = 'position:fixed;inset:0;z-index:40;display:none';
+  document.body.appendChild(backdrop);
+
+  function openMenu() {
+    navEl.classList.add('menu-open');
+    backdrop.style.display = 'block';
+    burger.setAttribute('aria-expanded', 'true');
+  }
+  function closeMenu() {
+    navEl.classList.remove('menu-open');
+    backdrop.style.display = 'none';
+    burger.setAttribute('aria-expanded', 'false');
+  }
+
   burger.addEventListener('click', () => {
-    const open = links.style.display === 'flex';
-    links.style.display = open ? '' : 'flex';
-    Object.assign(links.style, open ? {} : {
-      position: 'absolute', top: '100%', left: '0', right: '0',
-      flexDirection: 'column', gap: '0', margin: '0',
-      background: 'rgba(255,255,255,.98)', padding: '8px 16px 16px',
-      boxShadow: '0 12px 24px -12px rgba(0,0,0,.25)'
-    });
+    navEl.classList.contains('menu-open') ? closeMenu() : openMenu();
   });
-  // Close on link tap
-  links.querySelectorAll('a').forEach(a =>
-    a.addEventListener('click', () => {
-      if (window.innerWidth < 768) { links.style.display = ''; links.removeAttribute('style'); }
-    })
-  );
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  backdrop.addEventListener('click', closeMenu);
 }
