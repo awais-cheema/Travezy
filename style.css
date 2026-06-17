@@ -1021,7 +1021,7 @@ header.hero {
 .pkg .pkg-grad {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, .6), transparent 55%)
+  background: linear-gradient(to top, rgba(0, 0, 0, .82) 0%, rgba(0, 0, 0, .45) 30%, transparent 70%)
 }
 
 .pkg .pkg-cap {
