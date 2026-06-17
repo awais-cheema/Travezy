@@ -100,3 +100,11 @@ if (burger && links && navEl) {
   links.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   backdrop.addEventListener('click', closeMenu);
 }
+
+// Destination card navigation
+document.querySelectorAll('.dest').forEach(function(card) {
+  card.addEventListener('click', function(e) {
+    if (e.target.closest('a')) return;
+    location.href = document.querySelector('.dest-grid.full') ? 'contact.html' : 'destinations.html';
+  });
+});
