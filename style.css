@@ -1,6 +1,6 @@
 :root {
-  --primary: #bb0013;
-  --primary-container: #e51a22;
+  --primary: #88010e;
+  --primary-container: #80000d;
   --primary-fixed: #ffdad6;
   --primary-fixed-dim: #ffb4ab;
   --on-primary: #ffffff;
@@ -1276,7 +1276,7 @@ header.hero {
 
 /* FOOTER */
 footer {
-  background: var(--footer);
+  background: var(--primary);
   color: #fff;
   padding-top: clamp(60px, 5.56vw, 120px);
   font-size: clamp(14px, 1.11vw, 20px)
