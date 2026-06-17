@@ -1955,18 +1955,28 @@ footer {
 /* ---- max 767px: mobile ---- */
 @media (max-width: 767px) {
 
-  .announcement-bar { font-size: 2.4vw; padding: 8px 12px }
+  /* Layout: tighter horizontal padding for all sections; hero keeps its 14vw */
+  .wrap { padding-inline: 5vw }
+  .hero-inner.wrap { padding-inline: 14vw }
+
+  /* Announcement bar */
+  .announcement-bar { font-size: 11px; padding: 8px 12px }
 
   /* Hero */
   .hero-slide  { padding-top: 110px }
+  .hero-copy   { gap: 16px }
   .hero h1     { font-size: clamp(26px, 7.5vw, 36px) }
   .price       { font-size: 36px }
-  .hero p.lead { font-size: 16px }
+  .price-row   { gap: 10px }
+  .hero p.lead { font-size: 15px; max-width: 100% }
   .hero-arrow  { width: 36px; height: 36px }
   .hero-prev   { left: 10px }
   .hero-next   { right: 10px }
 
-  /* Mosaic — flatten to a 2-col image grid, drop absolute overlay pieces */
+  /* Destinations */
+  .dest { height: clamp(260px, 72vw, 320px) }
+
+  /* About mosaic — 2-col image grid */
   .mosaic {
     position: static;
     height: auto;
@@ -1976,11 +1986,11 @@ footer {
     gap: 10px
   }
   .mos-a {
-    position: static; width: 100%; height: 190px;
+    position: static; width: 100%; height: 220px;
     grid-area: a; border-radius: 14px
   }
   .mos-b {
-    position: static; width: 100%; height: 190px;
+    position: static; width: 100%; height: 220px;
     grid-area: b; border-radius: 14px; border: none; box-shadow: none
   }
   .mos-c, .mos-dots, .mos-ring { display: none }
@@ -1990,19 +2000,37 @@ footer {
     box-shadow: 0 4px 16px rgba(187,0,19,.15)
   }
 
-  /* Gallery */
-  .gal-grid { height: auto; gap: 8px }
-  .gal-item { height: 150px }
-  .gal-tall { grid-row: span 1; height: 150px }
-  .gal-big  { grid-column: span 2; grid-row: span 1; height: 175px }
+  /* Packages */
+  .pkg-img { height: 260px }
+  .pkg .pkg-loc { font-size: 11px }
+  .pkg .pkg-loc .material-symbols-outlined { font-size: 13px }
+  .pkg .pkg-title { font-size: clamp(15px, 4.5vw, 20px); line-height: 1.25 }
+  .pkg-body { padding: 16px }
+  .lead-c { margin-bottom: 32px }
+  .center-btn { margin-top: 32px }
+
+  /* Gallery — masonry: tall left col + 2 stacked right + wide bottom strip */
+  .gal-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 175px 175px 210px;
+    grid-auto-flow: dense;
+    height: auto;
+    gap: 8px
+  }
+  .gal-item { height: auto }
+  .gal-tall { grid-row: span 2; height: auto }
+  .gal-big  { grid-column: span 2; grid-row: span 1; height: auto }
 
   /* Stats cards */
-  .stat   { padding: 16px 14px }
+  .stat   { padding: 16px 14px; gap: 12px }
   .stat b { font-size: 13px }
+  .stat .ic { width: 42px; height: 42px; border-radius: 10px }
 
   /* Plant section */
   .plant     { padding: 40px 24px }
   .tree-pill { font-size: 16px; padding: 10px 18px; gap: 12px }
+  .plant-pic { display: block }
+  .plant-pic img { height: 660px !important; object-fit: cover; object-position: top center }
 
   /* CTA banner */
   .cta-banner   { padding: 48px 24px; border-radius: 16px }
@@ -2023,8 +2051,10 @@ footer {
   .map-wrap { height: 260px }
 
   /* Footer */
-  .botbar-in > img { width: 60vw !important }
+  .foot-logo       { height: 50px }
+  .foot-col h4     { font-size: 17px }
   .legal h5        { font-size: 15px }
+  .botbar-in > img { width: 60vw !important }
 }
 
 /* ---- 768–1023px: tablet ---- */
