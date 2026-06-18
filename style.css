@@ -198,12 +198,24 @@ nav.shrink .nav-inner {
   display: none;
   gap: clamp(20px, 3.22vw, 48px);
   align-items: center;
-  margin: 0 auto
+  margin: 0
 }
 
 @media(min-width:768px) {
   .nav-links {
     display: flex
+  }
+}
+
+@media(min-width:1024px) {
+  .nav-links {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+  }
+  .nav-phone {
+    margin-left: auto
   }
 }
 
@@ -239,6 +251,12 @@ nav.shrink .nav-inner {
   color: var(--on-surface)
 }
 
+.nav-phone .material-symbols-outlined {
+  font-size: 22px;
+  width: 22px;
+  height: 22px
+}
+
 .nav-phone-text {
   display: flex;
   flex-direction: column;
@@ -256,6 +274,36 @@ nav.shrink .nav-inner {
   .nav-phone {
     display: flex
   }
+}
+
+.nav-pay {
+  display: none;
+  align-items: center;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: clamp(12px, 1vw, 15px);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border-radius: 8px;
+  white-space: nowrap;
+  margin-left: clamp(16px, 1.8vw, 32px);
+  box-shadow: 0 6px 16px -4px rgba(187,0,19,.4);
+  transition: background .3s, transform .2s
+}
+
+.nav-pay:hover {
+  background: var(--on-surface);
+  color: #fff
+}
+
+.nav-pay:active {
+  transform: scale(.96)
+}
+
+@media(min-width:768px) {
+  .nav-pay { display: flex }
 }
 
 .burger {
@@ -1893,6 +1941,7 @@ footer {
   .burger    { display: flex; align-items: center; justify-content: center; padding: 8px; border-radius: 10px }
   .nav-inner { padding: 18px 5vw }
   .nav-logo  { width: 35vw }
+  .nav-pay   { display: flex; padding: 8px 14px; font-size: 11px; letter-spacing: .07em; box-shadow: none; margin-left: auto; margin-right: 10px }
 
   /* Dropdown panel — floating card */
   nav.menu-open .nav-links {
