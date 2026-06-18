@@ -1323,6 +1323,11 @@ header.hero {
   }
 }
 
+
+.less-top-padding{
+  padding-top: 3vw !important;
+}
+
 /* FOOTER */
 footer {
   background: var(--primary);
