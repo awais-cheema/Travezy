@@ -4,10 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Travezy | Travel Made Easy</title>
+<!-- DNS prefetch for external image hosts -->
+<link rel="dns-prefetch" href="https://images.pexels.com">
+<link rel="dns-prefetch" href="https://travezy.co.uk">
+<link rel="dns-prefetch" href="https://lh3.googleusercontent.com">
+<!-- Font preconnect -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Preload critical above-fold asset -->
+<link rel="preload" as="image" href="/Images/Travezy-Logo-Black.png">
+<!-- Text fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet">
+<!-- Icons: display=swap so page renders immediately; narrowed axes reduce file size -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/x-icon" href="/Favicon.png">
 </head>
@@ -201,25 +210,25 @@
   <div class="dest-grid">
 
     <div class="dest">
-      <img src="https://travezy.co.uk/wp-content/uploads/2023/11/Gili-Lankanfushi_Spa_1.webp" alt="Maldives">
+      <img src="https://travezy.co.uk/wp-content/uploads/2023/11/Gili-Lankanfushi_Spa_1.webp" alt="Maldives" loading="lazy">
       <div class="overlay"></div>
       <div class="label"><span class="tag">Maldives</span><h3 class="title">Tropical Luxury</h3></div>
       <div class="arrow"><span class="material-symbols-outlined">arrow_forward</span></div>
     </div>
     <div class="dest offset">
-      <img src="https://travezy.co.uk/wp-content/uploads/2023/11/iStock-512277914.webp" alt="Dubai">
+      <img src="https://travezy.co.uk/wp-content/uploads/2023/11/iStock-512277914.webp" alt="Dubai" loading="lazy">
       <div class="overlay"></div>
       <div class="label"><span class="tag">Dubai</span><h3 class="title">Desert &amp; Skyline</h3></div>
       <div class="arrow"><span class="material-symbols-outlined">arrow_forward</span></div>
     </div>
     <div class="dest">
-      <img src="https://travezy.co.uk/wp-content/uploads/2023/06/347248224_1001940877467145_2917459090260689120_n.jpg" alt="Thailand">
+      <img src="https://travezy.co.uk/wp-content/uploads/2023/06/347248224_1001940877467145_2917459090260689120_n.jpg" alt="Thailand" loading="lazy">
       <div class="overlay"></div>
       <div class="label"><span class="tag">Thailand</span><h3 class="title">Tropical Paradise</h3></div>
       <div class="arrow"><span class="material-symbols-outlined">arrow_forward</span></div>
     </div>
     <div class="dest offset">
-      <img src="https://travezy.co.uk/wp-content/uploads/2023/10/pool.webp" alt="Bali">
+      <img src="https://travezy.co.uk/wp-content/uploads/2023/10/pool.webp" alt="Bali" loading="lazy">
       <div class="overlay"></div>
       <div class="label"><span class="tag">Bali</span><h3 class="title">Island Paradise</h3></div>
       <div class="arrow"><span class="material-symbols-outlined">arrow_forward</span></div>
@@ -232,13 +241,13 @@
   <div class="about-inner wrap">
     <div class="mosaic">
       <div class="mos-a">
-        <img src="/Images/3.jpg">
+        <img src="/Images/3.jpg" loading="lazy">
       </div>
       <div class="mos-b">
-        <img src="/Images/1.jpg" alt="Kayaking">
+        <img src="/Images/1.jpg" alt="Kayaking" loading="lazy">
       </div>
       <div class="mos-c">
-        <img src="/Images/2.webp" alt="Travel Memories">
+        <img src="/Images/2.webp" alt="Travel Memories" loading="lazy">
       </div>
       <div class="mos-badge">
         <div class="mos-badge-ic"><span class="material-symbols-outlined">emoji_events</span></div>
@@ -274,7 +283,7 @@
     
     <div class="pkg">
       <div class="pkg-img">
-        <img src="/Images/Tour-Packages/bangkok-3.jpg" alt="Treehouse Villa &amp; Bangkok">
+        <img src="/Images/Tour-Packages/bangkok-3.jpg" alt="Treehouse Villa &amp; Bangkok" loading="lazy">
         <div class="nights-badge">10 Nights</div>
         <div class="pkg-grad"></div>
         <div class="pkg-cap">
@@ -289,7 +298,7 @@
     </div>
     <div class="pkg">
       <div class="pkg-img">
-        <img src="/Images/Tour-Packages/Safari.jpg" alt="Wildlife Safari To Tropical Paradise">
+        <img src="/Images/Tour-Packages/Safari.jpg" alt="Wildlife Safari To Tropical Paradise" loading="lazy">
         <div class="nights-badge">10 Nights</div>
         <div class="pkg-grad"></div>
         <div class="pkg-cap">
@@ -304,7 +313,7 @@
     </div>
     <div class="pkg">
       <div class="pkg-img">
-        <img src="/Images/Tour-Packages/Dubai-3.jpg" alt="Unforgettable Dubai Adventure">
+        <img src="/Images/Tour-Packages/Dubai-3.jpg" alt="Unforgettable Dubai Adventure" loading="lazy">
         <div class="nights-badge">5 Nights</div>
         <div class="pkg-grad"></div>
         <div class="pkg-cap">
@@ -319,7 +328,7 @@
     </div>
     <div class="pkg">
       <div class="pkg-img">
-        <img src="/Images/Tour-Packages/Thai.jpg" alt="Ultimate Thai Adventure">
+        <img src="/Images/Tour-Packages/Thai.jpg" alt="Ultimate Thai Adventure" loading="lazy">
         <div class="nights-badge">12 Nights</div>
         <div class="pkg-grad"></div>
         <div class="pkg-cap">
@@ -343,10 +352,10 @@
   <span class="eyebrow">Make Your Tour More Pleasure</span>
   <h2 class="display" style="margin-bottom:48px">Recent Gallery</h2>
   <div class="gal-grid">
-    <div class="gal-item gal-tall"><img src="https://images.pexels.com/photos/9482140/pexels-photo-9482140.jpeg?auto=compress&cs=tinysrgb&w=600&h=900&fit=crop" alt="Maldives overwater villa aerial view"></div>
-    <div class="gal-item"><img src="https://images.pexels.com/photos/3334821/pexels-photo-3334821.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Thailand longtail boat turquoise water"></div>
-    <div class="gal-item gal-big pos-left"><img src="/Images/safari-tours-africa-scaled.webp" alt="Bali rice terraces aerial"></div>
-    <div class="gal-item"><img src="https://images.pexels.com/photos/13391116/pexels-photo-13391116.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Sigiriya Lion Rock Sri Lanka"></div>
+    <div class="gal-item gal-tall"><img src="https://images.pexels.com/photos/9482140/pexels-photo-9482140.jpeg?auto=compress&cs=tinysrgb&w=600&h=900&fit=crop" alt="Maldives overwater villa aerial view" loading="lazy"></div>
+    <div class="gal-item"><img src="https://images.pexels.com/photos/3334821/pexels-photo-3334821.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Thailand longtail boat turquoise water" loading="lazy"></div>
+    <div class="gal-item gal-big pos-left"><img src="/Images/safari-tours-africa-scaled.webp" alt="Bali rice terraces aerial" loading="lazy"></div>
+    <div class="gal-item"><img src="https://images.pexels.com/photos/13391116/pexels-photo-13391116.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Sigiriya Lion Rock Sri Lanka" loading="lazy"></div>
   </div>
   <!-- <div class="center-btn">
     <button class="btn">View All Packages <span class="material-symbols-outlined">arrow_forward</span></button>
@@ -376,7 +385,7 @@
   <div class="wrap">
     <picture class="plant-pic">
       <source media="(max-width: 767px)" srcset="/Images/Plant-Mobile.avif" type="image/avif">
-      <img src="/Images/Plant.avif" alt="Plant a Tree" style="width:100%;height:auto;display:block;border-radius:16px; margin-bottom: 10vw;">
+      <img src="/Images/Plant.avif" alt="Plant a Tree" loading="lazy" style="width:100%;height:auto;display:block;border-radius:16px; margin-bottom: 10vw;">
     </picture>
   </div>
 </section>
@@ -386,7 +395,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-col">
-        <img class="foot-logo" src="/Travezy.webp" alt="Travezy">
+        <img class="foot-logo" src="/Travezy.webp" alt="Travezy" loading="lazy">
         <p>At Travezy, we pride ourselves on being one of the leading travel service providers. We specialize in creating tailored holiday packages designed to turn your dream getaway into reality.</p>
       </div>
       <div class="foot-col">
@@ -413,7 +422,7 @@
         <ul style="margin-bottom:32px">
           <li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li>
         </ul>
-        <img class="badge-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx63DtyRCqE5uW4VwhOZTgeGsts-RzoRzvlFS9wBlfcQbehSmSJE4DHa8i0OC08yIXpxBDcL269kfXtaY8r64hQKT5WGXd0mM5N3tB25vdla42zR6S_yl7YjYky3wgr6y3TgTnZagTaT9-r9_P2W_6wEIAyyUY_fR7vg4XmdMmi8q1BIs5z624RTp_rubBG0zapmzHm2TBzw9E9mISJqqozDKsmCGEuETE_T6vIupMfw5dCSape7qRnjX-pU_xWNRokwPupBUEkRc" alt="ATOL and IATA Protected">
+        <img class="badge-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx63DtyRCqE5uW4VwhOZTgeGsts-RzoRzvlFS9wBlfcQbehSmSJE4DHa8i0OC08yIXpxBDcL269kfXtaY8r64hQKT5WGXd0mM5N3tB25vdla42zR6S_yl7YjYky3wgr6y3TgTnZagTaT9-r9_P2W_6wEIAyyUY_fR7vg4XmdMmi8q1BIs5z624RTp_rubBG0zapmzHm2TBzw9E9mISJqqozDKsmCGEuETE_T6vIupMfw5dCSape7qRnjX-pU_xWNRokwPupBUEkRc" alt="ATOL and IATA Protected" loading="lazy">
       </div>
     </div>
     <div class="legal">
@@ -424,7 +433,7 @@
   <div class="botbar">
     <div class="wrap botbar-in">
       <p>Copyright &copy; 2026 Travezy UK. All rights reserved.</p>
-      <img src="/Images/Payments.webp" alt="Accepted payment methods" style="height:auto;width:28vw;display:block">
+      <img src="/Images/Payments.webp" alt="Accepted payment methods" loading="lazy" style="height:auto;width:28vw;display:block">
     </div>
   </div>
 </footer>
